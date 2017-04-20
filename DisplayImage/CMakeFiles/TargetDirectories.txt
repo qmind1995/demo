@@ -1,0 +1,3 @@
+/home/tri/Documents/DisplayImage/CMakeFiles/rebuild_cache.dir
+/home/tri/Documents/DisplayImage/CMakeFiles/edit_cache.dir
+/home/tri/Documents/DisplayImage/CMakeFiles/DisplayImage.dir

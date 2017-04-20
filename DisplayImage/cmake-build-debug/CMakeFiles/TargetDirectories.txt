@@ -1,0 +1,3 @@
+/home/quang/CLionProjects/DisplayImage/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/quang/CLionProjects/DisplayImage/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/quang/CLionProjects/DisplayImage/cmake-build-debug/CMakeFiles/DisplayImage.dir
