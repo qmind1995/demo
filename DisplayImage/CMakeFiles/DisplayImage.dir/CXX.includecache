@@ -7,12 +7,12 @@
 #IncludeRegexTransform: 
 
 /home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp
+opencv/cv.hpp
+-
+cvsba/cvsba.h
+-
 
 /home/tri/CLionProjects/demo/DisplayImage/main.cpp
-stdio.h
--
-iostream
--
 stdio.h
 -
 iostream
@@ -41,6 +41,8 @@ flann/flann.h
 /home/tri/CLionProjects/demo/DisplayImage/flann/flann.h
 flann/algorithms/lsh_index.h
 /home/tri/CLionProjects/demo/DisplayImage/flann/algorithms/lsh_index.h
+bundleAdjustment.cpp
+/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp
 
 /usr/local/include/cvsba/cvsba.h
 vector

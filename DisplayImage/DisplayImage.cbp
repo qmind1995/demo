@@ -86,9 +86,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp">
-			<Option target="DisplayImage"/>
-		</Unit>
 		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/main.cpp">
 			<Option target="DisplayImage"/>
 		</Unit>

@@ -123,33 +123,6 @@ DisplayImage/fast:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/build
 .PHONY : DisplayImage/fast
 
-bundleAdjustment.o: bundleAdjustment.cpp.o
-
-.PHONY : bundleAdjustment.o
-
-# target to build an object file
-bundleAdjustment.cpp.o:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.o
-.PHONY : bundleAdjustment.cpp.o
-
-bundleAdjustment.i: bundleAdjustment.cpp.i
-
-.PHONY : bundleAdjustment.i
-
-# target to preprocess a source file
-bundleAdjustment.cpp.i:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.i
-.PHONY : bundleAdjustment.cpp.i
-
-bundleAdjustment.s: bundleAdjustment.cpp.s
-
-.PHONY : bundleAdjustment.s
-
-# target to generate assembly for a file
-bundleAdjustment.cpp.s:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.s
-.PHONY : bundleAdjustment.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,9 +159,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... DisplayImage"
-	@echo "... bundleAdjustment.o"
-	@echo "... bundleAdjustment.i"
-	@echo "... bundleAdjustment.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
