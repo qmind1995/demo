@@ -30,7 +30,7 @@ void readme();
  */
 
 //return T matrix
-Mat normailization_for_fundamental(vector<Point2d>& points){
+Mat normalization_fundamental(vector<Point2d> points, vector<Point2d>& points_nor){
     unsigned long len = points.size();
     float x_centroid = 0;
     float y_centroid = 0;
@@ -42,29 +42,29 @@ Mat normailization_for_fundamental(vector<Point2d>& points){
     y_centroid = y_centroid/len;
 
     for(int i=0; i<len; i++){
-        points[i].x -= x_centroid;
-        points[i].y -= y_centroid;
+        points_nor[i].x = points[i].x - x_centroid;
+        points_nor[i].y = points[i].y - y_centroid;
     }
 
     float average_distant_from_origin = 0;
     for(int i=0; i<len; i++){
-        average_distant_from_origin += sqrt(points[i].x*points[i].x + points[i].y*points[i].y);
+        average_distant_from_origin += sqrt(points_nor[i].x*points_nor[i].x + points_nor[i].y*points_nor[i].y);
     }
     average_distant_from_origin = average_distant_from_origin/len;
 
     for(int i=0; i<len; i++){
-        points[i].x = points[i].x / (average_distant_from_origin / sqrt(2.0));
-        points[i].y = points[i].y / (average_distant_from_origin / sqrt(2.0));
+        points_nor[i].x = points_nor[i].x / (average_distant_from_origin / sqrt(2.0));
+        points_nor[i].y = points_nor[i].y / (average_distant_from_origin / sqrt(2.0));
     }
 
     Mat res(3, 3, CV_64F);
-    res.at<double>(0, 0) = average_distant_from_origin;
+    res.at<double>(0, 0) = sqrt(2) / average_distant_from_origin;
     res.at<double>(0, 1) = 0;
-    res.at<double>(0, 2) = average_distant_from_origin*(-1)*x_centroid;
+    res.at<double>(0, 2) = - x_centroid * sqrt(2) / average_distant_from_origin;
 
     res.at<double>(1, 0) = 0;
-    res.at<double>(1, 1) = average_distant_from_origin;
-    res.at<double>(1, 2) = average_distant_from_origin*(-1)*y_centroid;
+    res.at<double>(1, 1) = sqrt(2) / average_distant_from_origin;
+    res.at<double>(1, 2) = - y_centroid * sqrt(2) / average_distant_from_origin;
 
     res.at<double>(2, 0) = 0;
     res.at<double>(2, 1) = 0;
@@ -168,10 +168,13 @@ int main( int argc, char** argv )
         points2[i] = Point2d(x2, y2);
     }
 
-    Mat T1 = normailization_for_fundamental(points1);
-    Mat T2 = normailization_for_fundamental(points2);
+    vector<Point2d> points1_nor(point_count);
+    vector<Point2d> points2_nor(point_count);
 
-    Mat fundamental_mat = findFundamentalMat(points1, points2, FM_RANSAC, 3, 0.99);
+    Mat T1 = normalization_fundamental(points1, points1_nor);
+    Mat T2 = normalization_fundamental(points2, points2_nor);
+
+    Mat fundamental_mat = findFundamentalMat(points1_nor, points2_nor, FM_RANSAC, 3, 0.99);
 
     fundamental_mat = T1.t()*fundamental_mat*T2;
 
@@ -213,7 +216,7 @@ int main( int argc, char** argv )
         p2.at<double>(1, 0) = points2[i].y;
         p2.at<double>(2, 0) = 1;
 
-        Mat res = (T1.inv()*p1).t() * fundamental_mat * (T2.inv()*p2);
+        Mat res = p1.t() * fundamental_mat * p2;
 
         total_err += abs(res.at<double>(0,0));
     }
