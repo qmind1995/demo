@@ -5,41 +5,41 @@
 		<Option title="DisplayImage"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/tri/Documents/DisplayImage"/>
+				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/tri/Documents/DisplayImage"/>
+				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/tri/Documents/DisplayImage"/>
+				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DisplayImage">
-				<Option output="/home/tri/Documents/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tri/Documents/DisplayImage"/>
+				<Option output="/home/tri/CLionProjects/demo/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,15 +55,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DisplayImage/fast">
-				<Option output="/home/tri/Documents/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tri/Documents/DisplayImage"/>
+				<Option output="/home/tri/CLionProjects/demo/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -79,33 +79,36 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/Documents/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/tri/Documents/DisplayImage/DisplayImage.cpp">
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp">
 			<Option target="DisplayImage"/>
 		</Unit>
-		<Unit filename="/home/tri/Documents/DisplayImage/CMakeLists.txt">
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/main.cpp">
+			<Option target="DisplayImage"/>
+		</Unit>
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/tri/Documents/DisplayImage/../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/Documents/DisplayImage/../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/Documents/DisplayImage/../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/Documents/DisplayImage/../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/Documents/DisplayImage/../../../../usr/local/lib/cmake/Findcvsba.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\"/>
+		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/lib/cmake/Findcvsba.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

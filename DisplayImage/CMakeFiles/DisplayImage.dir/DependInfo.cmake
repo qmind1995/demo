@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tri/Documents/DisplayImage/DisplayImage.cpp" "/home/tri/Documents/DisplayImage/CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o"
+  "/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp" "/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.o"
+  "/home/tri/CLionProjects/demo/DisplayImage/main.cpp" "/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/DisplayImage.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

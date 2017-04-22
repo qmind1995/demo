@@ -1,4 +1,4 @@
-/home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/tri/Documents/DisplayImage
+/home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/tri/CLionProjects/demo/DisplayImage
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/tri/Documents/DisplayImage
+-- Build files have been written to: /home/tri/CLionProjects/demo/DisplayImage

@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/tri/Documents/DisplayImage/DisplayImage.cpp
+/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp
+
+/home/tri/CLionProjects/demo/DisplayImage/main.cpp
 stdio.h
 -
 iostream
@@ -18,17 +20,17 @@ iostream
 opencv2/imgproc.hpp
 -
 opencv2/core.hpp
-/home/tri/Documents/DisplayImage/opencv2/core.hpp
+/home/tri/CLionProjects/demo/DisplayImage/opencv2/core.hpp
 cvsba/cvsba.h
 -
 opencv2/features2d.hpp
-/home/tri/Documents/DisplayImage/opencv2/features2d.hpp
+/home/tri/CLionProjects/demo/DisplayImage/opencv2/features2d.hpp
 opencv2/imgcodecs.hpp
-/home/tri/Documents/DisplayImage/opencv2/imgcodecs.hpp
+/home/tri/CLionProjects/demo/DisplayImage/opencv2/imgcodecs.hpp
 opencv2/highgui.hpp
-/home/tri/Documents/DisplayImage/opencv2/highgui.hpp
+/home/tri/CLionProjects/demo/DisplayImage/opencv2/highgui.hpp
 opencv2/xfeatures2d.hpp
-/home/tri/Documents/DisplayImage/opencv2/xfeatures2d.hpp
+/home/tri/CLionProjects/demo/DisplayImage/opencv2/xfeatures2d.hpp
 flann/flann.hpp
 -
 flann/algorithms/hierarchical_clustering_index.h
@@ -36,9 +38,9 @@ flann/algorithms/hierarchical_clustering_index.h
 opencv/cv.hpp
 -
 flann/flann.h
-/home/tri/Documents/DisplayImage/flann/flann.h
+/home/tri/CLionProjects/demo/DisplayImage/flann/flann.h
 flann/algorithms/lsh_index.h
-/home/tri/Documents/DisplayImage/flann/algorithms/lsh_index.h
+/home/tri/CLionProjects/demo/DisplayImage/flann/algorithms/lsh_index.h
 
 /usr/local/include/cvsba/cvsba.h
 vector

@@ -48,10 +48,10 @@ RM = /home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tri/Documents/DisplayImage
+CMAKE_SOURCE_DIR = /home/tri/CLionProjects/demo/DisplayImage
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tri/Documents/DisplayImage
+CMAKE_BINARY_DIR = /home/tri/CLionProjects/demo/DisplayImage
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tri/Documents/DisplayImage/CMakeFiles /home/tri/Documents/DisplayImage/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tri/Documents/DisplayImage/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,59 @@ DisplayImage/fast:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/build
 .PHONY : DisplayImage/fast
 
-DisplayImage.o: DisplayImage.cpp.o
+bundleAdjustment.o: bundleAdjustment.cpp.o
 
-.PHONY : DisplayImage.o
+.PHONY : bundleAdjustment.o
 
 # target to build an object file
-DisplayImage.cpp.o:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o
-.PHONY : DisplayImage.cpp.o
+bundleAdjustment.cpp.o:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.o
+.PHONY : bundleAdjustment.cpp.o
 
-DisplayImage.i: DisplayImage.cpp.i
+bundleAdjustment.i: bundleAdjustment.cpp.i
 
-.PHONY : DisplayImage.i
+.PHONY : bundleAdjustment.i
 
 # target to preprocess a source file
-DisplayImage.cpp.i:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.i
-.PHONY : DisplayImage.cpp.i
+bundleAdjustment.cpp.i:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.i
+.PHONY : bundleAdjustment.cpp.i
 
-DisplayImage.s: DisplayImage.cpp.s
+bundleAdjustment.s: bundleAdjustment.cpp.s
 
-.PHONY : DisplayImage.s
+.PHONY : bundleAdjustment.s
 
 # target to generate assembly for a file
-DisplayImage.cpp.s:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s
-.PHONY : DisplayImage.cpp.s
+bundleAdjustment.cpp.s:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/bundleAdjustment.cpp.s
+.PHONY : bundleAdjustment.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -159,9 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... DisplayImage"
-	@echo "... DisplayImage.o"
-	@echo "... DisplayImage.i"
-	@echo "... DisplayImage.s"
+	@echo "... bundleAdjustment.o"
+	@echo "... bundleAdjustment.i"
+	@echo "... bundleAdjustment.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -1,3 +1,3 @@
-/home/tri/Documents/DisplayImage/CMakeFiles/rebuild_cache.dir
-/home/tri/Documents/DisplayImage/CMakeFiles/edit_cache.dir
-/home/tri/Documents/DisplayImage/CMakeFiles/DisplayImage.dir
+/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/rebuild_cache.dir
+/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/edit_cache.dir
+/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/DisplayImage.dir
