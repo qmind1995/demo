@@ -116,3 +116,38 @@ vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0,
     return points3D;
 }
 
+/**
+ *
+ * @param nviews
+ * @param tray_2DPts
+ * @param visibility
+ * @param Ks
+ * @param Rs
+ * @param Ts
+ * @param dist_coeffs
+ * @param E
+ * @param F
+ * @return
+ */
+vector<cv::Point3D> bundleAdjustmentForMultiViews(vector<std::vector<cv::Point2d> > tray_2DPts,
+                                                  vector<cv::Point3d> point_3Ds,
+                                                  vector<std::vector<int> >visibility,
+                                                  vector<cv::Mat> Ks,
+                                                  vector<cv::Mat> Rs,
+                                                  vector<cv::Mat> Ts,
+                                                  vector<vc::Mat> dist_coeffs,
+                                                  Mat E,
+                                                  Mat F){
+
+    try{
+        cvsba::Sba sba;
+        cvsba::Sba::Params param;
+        param.type = cvsba::Sba::MOTIONSTRUCTURE;
+        param.fixedIntrinsics = 5;
+        param.fixedDistortion = 5;
+        param.verbose = true;
+        sba.setParams(param);
+        double error = sba.run(point_3Ds, tray_2DPts, visibility, Ks, Rs, Ts, dist_coeffs);
+    }
+    catch (cv::Exception) { }
+}

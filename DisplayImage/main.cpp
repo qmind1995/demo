@@ -118,9 +118,6 @@ int main( int argc, char** argv )
     Mat img_1 = imread( image_1_address, IMREAD_GRAYSCALE );
     Mat img_2 = imread( image_2_address, IMREAD_GRAYSCALE );
 
-//    if( !img_1.data || !img_2.data )
-//    { std::cout<< " --(!) Error reading images " << std::endl; return -1; }
-
     //Detect the keypoints using Detector, compute the descriptors
     Ptr<BRISK> detector = BRISK::create();
 
@@ -128,7 +125,6 @@ int main( int argc, char** argv )
     Mat descriptors_1, descriptors_2;
     detector->detectAndCompute( img_1, Mat(), keypoints_1, descriptors_1 );
     detector->detectAndCompute( img_2, Mat(), keypoints_2, descriptors_2 );
-
 
     //Matching descriptor vectors using FLANN matcher and check symmetric
     cv::Ptr<cv::DescriptorMatcher> matcher = cv::makePtr<cv::FlannBasedMatcher>(cv::makePtr<cv::flann::LshIndexParams>(12, 20, 2));
@@ -239,7 +235,7 @@ int main( int argc, char** argv )
 //    }
 
     std::vector< cv::Point3d > point3ds=  bundleAdjustmentForTwoViews(points1, points2, rotation1, rotation2, translation, K);
-    display(argc,argv,point3ds); //for test
+//    display(argc,argv,point3ds); //for test
     waitKey(0);
     return 0;
 }
