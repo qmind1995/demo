@@ -19,6 +19,7 @@
 #include "flann/flann.h"
 #include "flann/algorithms/lsh_index.h"
 #include "bundleAdjustment.cpp"
+#include "displayPointCloud.cpp"
 
 using namespace std;
 using namespace cv;
@@ -235,6 +236,7 @@ int main( int argc, char** argv )
 //    }
 
     bundleAdjustmentForTwoViews(points1, points2, rotation1, rotation2, translation, K);
+    display(argc,argv); //for test
     waitKey(0);
     return 0;
 }

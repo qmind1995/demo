@@ -12,6 +12,10 @@ opencv/cv.hpp
 cvsba/cvsba.h
 -
 
+/home/tri/CLionProjects/demo/DisplayImage/displayPointCloud.cpp
+GL/glut.h
+-
+
 /home/tri/CLionProjects/demo/DisplayImage/main.cpp
 stdio.h
 -
@@ -43,6 +47,8 @@ flann/algorithms/lsh_index.h
 /home/tri/CLionProjects/demo/DisplayImage/flann/algorithms/lsh_index.h
 bundleAdjustment.cpp
 /home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp
+displayPointCloud.cpp
+/home/tri/CLionProjects/demo/DisplayImage/displayPointCloud.cpp
 
 /usr/local/include/cvsba/cvsba.h
 vector
