@@ -235,8 +235,8 @@ int main( int argc, char** argv )
 //              i, good_matches[i].queryIdx, good_matches[i].trainIdx, good_matches[i].distance);
 //    }
 
-    bundleAdjustmentForTwoViews(points1, points2, rotation1, rotation2, translation, K);
-    display(argc,argv); //for test
+    std::vector< cv::Point3d > point3ds=  bundleAdjustmentForTwoViews(points1, points2, rotation1, rotation2, translation, K);
+    display(argc,argv,point3ds); //for test
     waitKey(0);
     return 0;
 }

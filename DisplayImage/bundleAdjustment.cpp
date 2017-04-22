@@ -30,7 +30,7 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
     return points3D;
 }
 
-void bundleAdjustmentForTwoViews(vector<Point2d> points0,
+vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0,
                                  vector<Point2d> points1,
                                  Mat rotation1,
                                  Mat rotation2,
@@ -113,5 +113,6 @@ void bundleAdjustmentForTwoViews(vector<Point2d> points0,
     sba.run(points3D, pointsImg, visibility, Ks, Rs, ts, dist_coeffs);
     cout<<"Initial error="<<sba.getInitialReprjError()<<". Final error="<<sba.getFinalReprjError()<<std::endl;
     cout<<"debug";
+    return points3D;
 }
 
