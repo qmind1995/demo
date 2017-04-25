@@ -9,6 +9,7 @@ using namespace cv;
 vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
                                                vector<Point2d> points0,
                                                vector<Point2d> points1, int N){
+    //for test!
     Mat P0 = K * cv::Mat::eye(3, 4, CV_64F);
     Mat Rt, X;
     hconcat(R, T, Rt);
@@ -30,13 +31,34 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
     return points3D;
 }
 
+vector<Point3d> triAngulation(Mat K, Mat R0, Mat T0, Mat R1, Mat T1,
+                              vector<Point2d> points0, vector<Point2d> points1){
+    Mat Rt0, Rt1, points3dMat;
+    hconcat(R0, T0, Rt0);
+    hconcat(R1, T1, Rt1);
+    Mat P0 = K * Rt0;
+    Mat P1 = K * Rt1;
+    triangulatePoints(P0, P1, points0, points1, points3dMat);
+    points3dMat.row(0) = points3dMat.row(0) / points3dMat.row(3);
+    points3dMat.row(1) = points3dMat.row(1) / points3dMat.row(3);
+    points3dMat.row(2) = points3dMat.row(2) / points3dMat.row(3);
+
+    std::vector< cv::Point3d > points3D;
+    points3D.resize(points3dMat.cols);
+    for(int i =0 ; i< points3dMat.cols; i++) {
+
+        //change point3d data structure from matrix -> vector
+        points3D[i] = cv::Point3d(X.at<double>(0, i), X.at<double>(1, i), X.at<double>(2, i));
+    }
+    return points3D;
+}
+
 vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0,
                                  vector<Point2d> points1,
                                  Mat rotation1,
                                  Mat rotation2,
                                  Mat translation,
-                                 Mat K
-){
+                                 Mat K){
     //cal projection matrix
     Mat P1(3, 4, CV_64F);
     hconcat( K*rotation1, K*(cv::Mat::eye(3,3,CV_64FC1)), P1 );
@@ -129,13 +151,13 @@ vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0,
  * @param F
  * @return
  */
-vector<cv::Point3D> bundleAdjustmentForMultiViews(vector<std::vector<cv::Point2d> > tray_2DPts,
+vector<cv::Point3d> bundleAdjustmentForMultiViews(vector<std::vector<cv::Point2d> > tray_2DPts,
                                                   vector<cv::Point3d> point_3Ds,
                                                   vector<std::vector<int> >visibility,
                                                   vector<cv::Mat> Ks,
                                                   vector<cv::Mat> Rs,
                                                   vector<cv::Mat> Ts,
-                                                  vector<vc::Mat> dist_coeffs,
+                                                  vector<cv::Mat> dist_coeffs,
                                                   Mat E,
                                                   Mat F){
 
