@@ -75,14 +75,14 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
     vector< DMatch > matchesTwoToOne;
     vector< DMatch > matches;
     matcher->match( descriptors_1, descriptors_2, matchesOneToTwo, Mat() );
-    matcher->match( descriptors_2, descriptors_1, matchesTwoToOne, Mat() );
+    //matcher->match( descriptors_2, descriptors_1, matchesTwoToOne, Mat() );
 
-    for(int i = 0; i < descriptors_1.rows; i++){
-        if(matchesTwoToOne[matchesOneToTwo[i].trainIdx].trainIdx == i){
-            matches.push_back(DMatch(i, matchesOneToTwo[i].trainIdx, matchesOneToTwo[i].distance));
-        }
-    }
-
+    //for(int i = 0; i < descriptors_1.rows; i++){
+    //    if(matchesTwoToOne[matchesOneToTwo[i].trainIdx].trainIdx == i){
+    //        matches.push_back(DMatch(i, matchesOneToTwo[i].trainIdx, matchesOneToTwo[i].distance));
+    //    }
+    //}
+    matches = matchesOneToTwo;
     sort(matches.begin(), matches.end());
 
     int view_range = min((int)matches.size(), ceilViewRange);
