@@ -111,13 +111,26 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
     Mat T1 = normalization_fundamental(points0, points0_nor);
     Mat T2 = normalization_fundamental(points1, points1_nor);
 
-    Mat fundamental_mat = findFundamentalMat(points0_nor, points1_nor, FM_RANSAC, 3, 0.99);
+    Mat inliner;
+    double dis_outline = 2*T1.at<double>(0,0);
+
+    Mat fundamental_mat = findFundamentalMat(points0_nor, points1_nor, FM_RANSAC, dis_outline, 0.8, inliner);
 
     fundamental_mat = T1.t()*fundamental_mat*T2;
     Mat essential_mat = K.t()*fundamental_mat*K;
 
+    vector<Point2d> points0_good;
+    vector<Point2d> points1_good;
+
+    for(int i=0; i<point_count; i++){
+        if ((unsigned int)inliner.at<char>(i) == 1){
+            points0_good.push_back(points0[i]);
+            points1_good.push_back(points1[i]);
+        }
+    }
+    
     Mat rotation, translation;
-    recoverPose(essential_mat, points0, points1, K, rotation, translation);
+    recoverPose(essential_mat, points0_good, points1_good, K, rotation, translation);
 
     if(showMatching){
         Mat img_matches;
@@ -131,7 +144,7 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
 
     }
 
-    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(points0, points1, rotation, translation, K, view_range);
+    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(points0_good, points1_good, rotation, translation, K, view_range);
 
     return points3D;
 
