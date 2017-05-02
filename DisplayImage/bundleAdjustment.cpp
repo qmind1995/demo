@@ -9,7 +9,6 @@ using namespace cv;
 vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
                                                vector<Point2d> points0,
                                                vector<Point2d> points1, int N){
-    //for test!
     Mat P0 = K * cv::Mat::eye(3, 4, CV_64F);
     Mat Rt, X;
     hconcat(R, T, Rt);
@@ -20,156 +19,72 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
     X.row(2) = X.row(2) / X.row(3);
     X.row(3) = 1;
     std::vector< cv::Point3d > points3D;
-    points3D.resize(67);
-    for(int i =0 ; i< 67; i++) {
-
-        //change point3d data structure from matrix -> vector
-        points3D[i] = cv::Point3d(X.at<double>(0, i), X.at<double>(1, i), X.at<double>(2, i));
-    }
-    cout<<"3D Point matrix : \n"<<points3D<<endl;
-    cout<<"debug";
-    return points3D;
-}
-
-vector<Point3d> triAngulation(Mat K, Mat R0, Mat T0, Mat R1, Mat T1,
-                              vector<Point2d> points0, vector<Point2d> points1){
-    Mat Rt0, Rt1, points3dMat;
-    hconcat(R0, T0, Rt0);
-    hconcat(R1, T1, Rt1);
-    Mat P0 = K * Rt0;
-    Mat P1 = K * Rt1;
-    triangulatePoints(P0, P1, points0, points1, points3dMat);
-    points3dMat.row(0) = points3dMat.row(0) / points3dMat.row(3);
-    points3dMat.row(1) = points3dMat.row(1) / points3dMat.row(3);
-    points3dMat.row(2) = points3dMat.row(2) / points3dMat.row(3);
-
-    std::vector< cv::Point3d > points3D;
-    points3D.resize(points3dMat.cols);
-    for(int i =0 ; i< points3dMat.cols; i++) {
-
+    points3D.resize(N);
+    for(int i =0 ; i< N; i++) {
         //change point3d data structure from matrix -> vector
         points3D[i] = cv::Point3d(X.at<double>(0, i), X.at<double>(1, i), X.at<double>(2, i));
     }
     return points3D;
 }
 
-vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0,
-                                 vector<Point2d> points1,
-                                 Mat rotation1,
-                                 Mat rotation2,
-                                 Mat translation,
-                                 Mat K){
+vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0, vector<Point2d> points1,
+                                 Mat rotation, Mat translation, Mat K, int N, int N_VIEWS =2){
     //cal projection matrix
+    Mat P0 = K * Mat::eye(3, 4, CV_64F);
     Mat P1(3, 4, CV_64F);
-    hconcat( K*rotation1, K*(cv::Mat::eye(3,3,CV_64FC1)), P1 );
-    Mat P2(3, 4, CV_64F);
-    hconcat( K*rotation2, K*translation, P1 );
-
-    cout<< P1<<endl;
-    cout<< K<<endl;
+    hconcat( K*rotation, K*translation, P0 );
 
     //hot fix:
-    int N= 67, NCAMS =2;
-
-
-    std::vector< cv::Point3d > points3D;
-    points3D = triAngulationForTwoViews(K,rotation2, translation,points0, points1, N);
-    std::vector< std::vector< cv::Point2d > > pointsImg;
-    pointsImg.resize(NCAMS);
-    for(int i=0; i<NCAMS; i++){
+    vector< Point3d > points3D;
+    points3D = triAngulationForTwoViews(K,rotation, translation,points0, points1, N);
+    vector< vector< Point2d > > pointsImg;
+    pointsImg.resize(N_VIEWS);
+    for(int i = 0; i < N_VIEWS; i++){
         pointsImg[i].resize(N);
     }
-    for(int i =0 ; i< N; i++){
+    for(int i = 0 ; i < N; i++){
         pointsImg[0][i] = points0[i];
         pointsImg[1][i] = points1[i];
     }
-    std::vector< std::vector< int > > visibility;
-    visibility.resize(NCAMS);
-    for(int i=0; i<NCAMS; i++)  {
+    vector< std::vector<int> > visibility;
+    visibility.resize(N_VIEWS);
+    for(int i=0; i<N_VIEWS; i++){
         visibility[i].resize(N);
         for(int j=0; j<N; j++){
             visibility[i][j]=1;
         }
     }
     // fill distortion (assume no distortion)
-    std::vector< cv::Mat > distCoeffs;
-    distCoeffs.resize(NCAMS);
-    for(int i=0; i<NCAMS; i++) {
-        distCoeffs[i] = cv::Mat(5,1,CV_64FC1, cv::Scalar::all(0));
+    vector< Mat > distCoeffs;
+    distCoeffs.resize(N_VIEWS);
+    for(int i=0; i<N_VIEWS; i++) {
+        distCoeffs[i] = Mat(5,1,CV_64FC1, Scalar::all(0));
     }
 
     // cameras intrinsic matrix
-    std::vector< cv::Mat > cameraMatrix;
-    cameraMatrix.resize(NCAMS);
-    for(int i=0; i<NCAMS; i++) {
+    vector< Mat > cameraMatrix;
+    cameraMatrix.resize(N_VIEWS);
+    for(int i=0; i<N_VIEWS; i++) {
         cameraMatrix[i] =K;
     }
 
-//    cvsba::Sba sba;
-//    sba.run(points3D,  pointsImg,  visibility,  cameraMatrix,  R,  T, distCoeffs);
+    vector<Mat> Ks, dist_coeffs, Rs, ts;
+    Ks.resize(N_VIEWS, K);
+    dist_coeffs.resize(N_VIEWS, Mat::zeros(5, 1, CV_64F));
+    Rs.push_back(Mat::eye(3, 3, CV_64F));// R for the first camera (index: 0)
+    ts.push_back(Mat::zeros(3, 1, CV_64F));// t for the first camera (index: 0)
 
-    std::vector<cv::Mat> Ks, dist_coeffs, Rs, ts;
-    Ks.resize(NCAMS, K);
-    dist_coeffs.resize(NCAMS, cv::Mat::zeros(5, 1, CV_64F));
-    Rs.push_back(cv::Mat::eye(3, 3, CV_64F));// R for the first camera (index: 0)
-    ts.push_back(cv::Mat::zeros(3, 1, CV_64F));// t for the first camera (index: 0)
+    Rs.push_back(rotation);// R for the second camera
+    ts.push_back(translation);// t for the second camera
 
-
-    cv::Mat F = cv::findFundamentalMat(points0, points1, cv::FM_8POINT);
-    cv::Mat E = K.t() * F * K;
-    cv::Mat R, t;
-    cv::recoverPose(E, points0, points1, K, R, t);
-    Rs.push_back(R);// R for the second camera
-    ts.push_back(t);// t for the second camera
-
-    cout<<"R:  \n"<<R<<endl;
-    cout<<"debug";
-//    for (int c = 0; c < .cols; c++)
     cvsba::Sba sba;
     cvsba::Sba::Params param;
     param.type = cvsba::Sba::MOTIONSTRUCTURE;
     param.fixedIntrinsics = 5;
     param.fixedDistortion = 5;
-    param.verbose = true;
+    param.verbose = false;
     sba.setParams(param);
     sba.run(points3D, pointsImg, visibility, Ks, Rs, ts, dist_coeffs);
     cout<<"Initial error="<<sba.getInitialReprjError()<<". Final error="<<sba.getFinalReprjError()<<std::endl;
-    cout<<"debug";
     return points3D;
-}
-
-/**
- *
- * @param nviews
- * @param tray_2DPts
- * @param visibility
- * @param Ks
- * @param Rs
- * @param Ts
- * @param dist_coeffs
- * @param E
- * @param F
- * @return
- */
-vector<cv::Point3d> bundleAdjustmentForMultiViews(vector<std::vector<cv::Point2d> > tray_2DPts,
-                                                  vector<cv::Point3d> point_3Ds,
-                                                  vector<std::vector<int> >visibility,
-                                                  vector<cv::Mat> Ks,
-                                                  vector<cv::Mat> Rs,
-                                                  vector<cv::Mat> Ts,
-                                                  vector<cv::Mat> dist_coeffs,
-                                                  Mat E,
-                                                  Mat F){
-
-    try{
-        cvsba::Sba sba;
-        cvsba::Sba::Params param;
-        param.type = cvsba::Sba::MOTIONSTRUCTURE;
-        param.fixedIntrinsics = 5;
-        param.fixedDistortion = 5;
-        param.verbose = true;
-        sba.setParams(param);
-        double error = sba.run(point_3Ds, tray_2DPts, visibility, Ks, Rs, Ts, dist_coeffs);
-    }
-    catch (cv::Exception) { }
 }
