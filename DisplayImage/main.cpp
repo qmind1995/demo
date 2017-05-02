@@ -277,7 +277,7 @@ int main( int argc, char** argv ){
     K.at<double>(2, 2) = 1.000000;
     bool showMatching = false;
 
-    int numImageTest = 30;
+    int numImageTest = 2;
 
     string imageFolder = "./pictures/dinoRing/";
     string imageListFile = "./pictures/dinoRing/dinoR_good_silhouette_images.txt";
@@ -294,16 +294,14 @@ int main( int argc, char** argv ){
     }
 
     vector< cv::Point3d > points3D;
-    for(int i =0 ; i< numImageTest;i++){
-//        if(i!=0){
-//            continue;
-//        }
+    for(int i =0 ; i< numImageTest-1;i++){
         int image0_index = i;
-        int image1_index = i+1;
-        string image0 = imageFolder+ imageList[image0_index];
-        string image1 = imageFolder+ imageList[image1_index];
-        vector< cv::Point3d > solvedPoints = get3DPointsFromTwoImg(image0, image1, K, showMatching);
-        for(int j =0 ;j< solvedPoints.size(); j++){
+        int image1_index = i + 1;
+        cout << image0_index << endl;
+        string image0 = imageFolder + imageList[image0_index];
+        string image1 = imageFolder + imageList[image1_index];
+        vector<cv::Point3d> solvedPoints = get3DPointsFromTwoImg(image0, image1, K, showMatching, 200);
+        for (int j = 0; j < solvedPoints.size(); j++) {
             points3D.push_back(solvedPoints[j]);
         }
     }

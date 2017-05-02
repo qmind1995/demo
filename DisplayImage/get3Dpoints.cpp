@@ -116,8 +116,11 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
     fundamental_mat = T1.t()*fundamental_mat*T2;
     Mat essential_mat = K.t()*fundamental_mat*K;
 
-    Mat rotation, translation;
-    recoverPose(essential_mat, points0, points1, K, rotation, translation);
+//    Mat rotation, translation;
+//    recoverPose(essential_mat, points0_nor, points1_nor, K, rotation, translation);
+    Mat rotation1, rotation, translation;
+    decomposeEssentialMat(essential_mat, rotation, rotation1, translation);
+
 
     if(showMatching){
         Mat img_matches;
@@ -134,5 +137,4 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
     vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(points0, points1, rotation, translation, K, view_range);
 
     return points3D;
-
 }
