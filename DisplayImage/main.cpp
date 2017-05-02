@@ -295,9 +295,9 @@ int main( int argc, char** argv ){
 
     vector< cv::Point3d > points3D;
     for(int i =0 ; i< numImageTest;i++){
-        if(i!=0){
-            continue;
-        }
+//        if(i!=0){
+//            continue;
+//        }
         int image0_index = i;
         int image1_index = i+1;
         string image0 = imageFolder+ imageList[image0_index];
