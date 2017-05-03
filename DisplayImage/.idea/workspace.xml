@@ -46,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.ply" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.ply" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.ply">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1620">
@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get3Dpoints.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="get3Dpoints.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2920">
-              <caret line="146" column="77" lean-forward="false" selection-start-line="146" selection-start-column="65" selection-end-line="146" selection-end-column="77" />
+            <state relative-caret-position="234">
+              <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
               <folding>
                 <element signature="e#40#58#0" expanded="true" />
               </folding>
@@ -94,7 +94,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Point2f</find>
       <find>point2f</find>
       <find>p1</find>
       <find>ey</find>
@@ -124,6 +123,7 @@
       <find>resize</find>
       <find>push</find>
       <find>65</find>
+      <find>HEAD</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -135,9 +135,9 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/matching.cpp" />
         <option value="$PROJECT_DIR$/bundleAdjustment.cpp" />
-        <option value="$PROJECT_DIR$/get3Dpoints.cpp" />
         <option value="$PROJECT_DIR$/test.ply" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/get3Dpoints.cpp" />
       </list>
     </option>
   </component>
@@ -490,12 +490,12 @@
       <workItem from="1493716772343" duration="5764000" />
       <workItem from="1493730847594" duration="4436000" />
       <workItem from="1493809948334" duration="1377000" />
-      <workItem from="1493811702928" duration="784000" />
+      <workItem from="1493811702928" duration="1407000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225020000" />
+    <option name="totallyTimeSpent" value="225643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
@@ -852,16 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2920">
-          <caret line="146" column="77" lean-forward="false" selection-start-line="146" selection-start-column="65" selection-end-line="146" selection-end-column="77" />
-          <folding>
-            <element signature="e#40#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/include/cvsba/cvsba.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
@@ -885,6 +875,16 @@
         <state relative-caret-position="1620">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
