@@ -275,7 +275,7 @@ int main( int argc, char** argv ){
     K.at<double>(2, 0) = 0.000000;
     K.at<double>(2, 1) = 0.000000;
     K.at<double>(2, 2) = 1.000000;
-    bool showMatching = false;
+    bool showMatching = true;
 
     int numImageTest = 2;
 

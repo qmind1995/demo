@@ -114,7 +114,7 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
     Mat inliner;
     double dis_outline = 2*T1.at<double>(0,0);
 
-    Mat fundamental_mat = findFundamentalMat(points0_nor, points1_nor, FM_RANSAC, dis_outline, 0.8, inliner);
+    Mat fundamental_mat = findFundamentalMat(points0_nor, points1_nor, FM_RANSAC, dis_outline, 0.99, inliner);
 
     fundamental_mat = T1.t()*fundamental_mat*T2;
     Mat essential_mat = K.t()*fundamental_mat*K;
@@ -144,7 +144,7 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
 
     }
 
-    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(points0_good, points1_good, rotation, translation, K, view_range);
+    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(points0_good, points1_good, rotation, translation, K, points1_good.size());
 
     return points3D;
 }
