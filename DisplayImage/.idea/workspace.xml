@@ -34,13 +34,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="283" column="29" lean-forward="true" selection-start-line="283" selection-start-column="29" selection-end-line="283" selection-end-column="29" />
+            <state relative-caret-position="384">
+              <caret line="275" column="34" lean-forward="true" selection-start-line="275" selection-start-column="34" selection-end-line="275" selection-end-column="34" />
               <folding>
                 <element signature="e#108#126#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get3Dpoints.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2640">
+              <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="64" />
+              <folding>
+                <element signature="e#40#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,21 +61,9 @@
       <file leaf-file-name="test.ply" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.ply">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1620">
-              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get3Dpoints.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
-              <folding>
-                <element signature="e#40#58#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -71,8 +71,8 @@
       <file leaf-file-name="bundleAdjustment.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundleAdjustment.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1740">
-              <caret line="87" column="62" lean-forward="false" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+            <state relative-caret-position="1600">
+              <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
               <folding>
                 <element signature="e#39#63#0" expanded="true" />
               </folding>
@@ -136,8 +136,8 @@
         <option value="$PROJECT_DIR$/matching.cpp" />
         <option value="$PROJECT_DIR$/bundleAdjustment.cpp" />
         <option value="$PROJECT_DIR$/test.ply" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/get3Dpoints.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -490,27 +490,34 @@
       <workItem from="1493716772343" duration="5764000" />
       <workItem from="1493730847594" duration="4436000" />
       <workItem from="1493809948334" duration="1377000" />
-      <workItem from="1493811702928" duration="1407000" />
+      <workItem from="1493811702928" duration="1640000" />
+      <workItem from="1493815678858" duration="1059000" />
+      <workItem from="1493816761417" duration="1560000" />
+      <workItem from="1493819534507" duration="5899000" />
+      <workItem from="1493869243664" duration="5582000" />
+      <workItem from="1493908557393" duration="1198000" />
+      <workItem from="1494036732619" duration="155000" />
+      <workItem from="1494036909683" duration="145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225643000" />
+    <option name="totallyTimeSpent" value="241474000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17130308" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14568081" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17436662" sideWeight="0.11346999" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30253354" sideWeight="0.49423522" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31743667" sideWeight="0.49423522" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36214605" sideWeight="0.49423522" order="3" side_tool="false" content_ui="tabs" x="143" y="390" width="1155" height="274" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39940387" sideWeight="0.88653004" order="7" side_tool="false" content_ui="tabs" />
@@ -842,12 +849,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundleAdjustment.cpp">
+    <entry file="file://$PROJECT_DIR$/test.ply">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="87" column="62" lean-forward="false" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+        <state relative-caret-position="200">
+          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="64" />
           <folding>
-            <element signature="e#39#63#0" expanded="true" />
+            <element signature="e#40#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -860,30 +875,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/bundleAdjustment.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="283" column="29" lean-forward="true" selection-start-line="283" selection-start-column="29" selection-end-line="283" selection-end-column="29" />
+        <state relative-caret-position="1600">
+          <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
           <folding>
-            <element signature="e#108#126#0" expanded="true" />
+            <element signature="e#39#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.ply">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/get3Dpoints.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        <state relative-caret-position="384">
+          <caret line="275" column="34" lean-forward="true" selection-start-line="275" selection-start-column="34" selection-end-line="275" selection-end-column="34" />
           <folding>
-            <element signature="e#40#58#0" expanded="true" />
+            <element signature="e#108#126#0" expanded="true" />
           </folding>
         </state>
       </provider>
