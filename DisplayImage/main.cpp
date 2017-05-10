@@ -261,6 +261,16 @@ void writeMeshLabFile(string fileName,vector< cv::Point3d > points3D){
     plyFile.close();
 }
 
+void extractPairImageInfo(
+        const vector<string> image_address,
+        const Mat K,
+        const int ceilViewRange = 100,
+        vector<Point3d>& points,
+        vector<vector<Point2d>>& imagePoints,
+        vector<vector<int>>& visibility,
+        vector<Mat>& R_global,
+        vector<Mat>& T_global);
+
 int main( int argc, char** argv ){
 
     Mat K(3, 3, CV_64F);
