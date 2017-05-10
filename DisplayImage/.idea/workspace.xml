@@ -27,8 +27,8 @@
       <file leaf-file-name="nViewStructureFromMotion.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nViewStructureFromMotion.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+            <state relative-caret-position="303">
+              <caret line="219" column="30" lean-forward="false" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
               <folding>
                 <element signature="e#42#60#0" expanded="true" />
               </folding>
@@ -509,12 +509,12 @@
       <workItem from="1494394250033" duration="19379000" />
       <workItem from="1494420031640" duration="4370000" />
       <workItem from="1494424664443" duration="412000" />
-      <workItem from="1494425095875" duration="11000" />
+      <workItem from="1494425095875" duration="892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271870000" />
+    <option name="totallyTimeSpent" value="272751000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -779,6 +779,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24030">
           <caret line="1335" column="41" lean-forward="false" selection-start-line="1335" selection-start-column="16" selection-end-line="1335" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -786,6 +787,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="672" column="31" lean-forward="false" selection-start-line="672" selection-start-column="31" selection-end-line="672" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -858,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nViewStructureFromMotion.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+        <state relative-caret-position="303">
+          <caret line="219" column="30" lean-forward="false" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
           <folding>
             <element signature="e#42#60#0" expanded="true" />
           </folding>
