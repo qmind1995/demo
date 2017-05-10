@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/quang/clion-2017.1/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -E remove -f
+RM = /home/quang/clion-2017.1/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tri/CLionProjects/demo/DisplayImage
+CMAKE_SOURCE_DIR = /home/quang/CLionProjects/quang/demo/DisplayImage
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tri/CLionProjects/demo/DisplayImage
+CMAKE_BINARY_DIR = /home/quang/CLionProjects/quang/demo/DisplayImage
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/tri/CLionProjects/demo/DisplayImage
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/quang/clion-2017.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/quang/clion-2017.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles /home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+nViewStructureFromMotion.o: nViewStructureFromMotion.cpp.o
+
+.PHONY : nViewStructureFromMotion.o
+
+# target to build an object file
+nViewStructureFromMotion.cpp.o:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o
+.PHONY : nViewStructureFromMotion.cpp.o
+
+nViewStructureFromMotion.i: nViewStructureFromMotion.cpp.i
+
+.PHONY : nViewStructureFromMotion.i
+
+# target to preprocess a source file
+nViewStructureFromMotion.cpp.i:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.i
+.PHONY : nViewStructureFromMotion.cpp.i
+
+nViewStructureFromMotion.s: nViewStructureFromMotion.cpp.s
+
+.PHONY : nViewStructureFromMotion.s
+
+# target to generate assembly for a file
+nViewStructureFromMotion.cpp.s:
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.s
+.PHONY : nViewStructureFromMotion.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... nViewStructureFromMotion.o"
+	@echo "... nViewStructureFromMotion.i"
+	@echo "... nViewStructureFromMotion.s"
 .PHONY : help
 
 

@@ -27,8 +27,14 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
     return points3D;
 }
 
-vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0, vector<Point2d> points1,
-                                 Mat rotation, Mat translation, Mat K, int N, int N_VIEWS =2){
+vector< cv::Point3d > bundleAdjustmentForTwoViews(
+        vector<Point2d> points0,
+        vector<Point2d> points1,
+        Mat rotation,
+        Mat translation,
+        Mat K,
+        int N,
+        int N_VIEWS =2){
     //cal projection matrix
     Mat P0 = K * Mat::eye(3, 4, CV_64F);
     Mat P1(3, 4, CV_64F);

@@ -5,107 +5,110 @@
 		<Option title="DisplayImage"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
+				<Option working_dir="/home/quang/CLionProjects/quang/demo/DisplayImage"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
+				<Option working_dir="/home/quang/CLionProjects/quang/demo/DisplayImage"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
+				<Option working_dir="/home/quang/CLionProjects/quang/demo/DisplayImage"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DisplayImage">
-				<Option output="/home/tri/CLionProjects/demo/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
+				<Option output="/home/quang/CLionProjects/quang/demo/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/quang/CLionProjects/quang/demo/DisplayImage"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/local/include/opencv"/>
-					<Add directory="/usr/include/c++/4.8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
-					<Add directory="/usr/include/c++/4.8/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/c++/4.9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.9"/>
+					<Add directory="/usr/include/c++/4.9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DisplayImage/fast">
-				<Option output="/home/tri/CLionProjects/demo/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/tri/CLionProjects/demo/DisplayImage"/>
+				<Option output="/home/quang/CLionProjects/quang/demo/DisplayImage/DisplayImage" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/quang/CLionProjects/quang/demo/DisplayImage"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/local/include/opencv"/>
-					<Add directory="/usr/include/c++/4.8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
-					<Add directory="/usr/include/c++/4.8/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/c++/4.9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.9"/>
+					<Add directory="/usr/include/c++/4.9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/tri/CLionProjects/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 DisplayImage/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/quang/CLionProjects/quang/demo/DisplayImage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/main.cpp">
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/main.cpp">
 			<Option target="DisplayImage"/>
 		</Unit>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/CMakeLists.txt">
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/nViewStructureFromMotion.cpp">
+			<Option target="DisplayImage"/>
+		</Unit>
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/../../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/../../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/../../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\share\OpenCV\"/>
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/../../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\"/>
 		</Unit>
-		<Unit filename="/home/tri/CLionProjects/demo/DisplayImage/../../../../../usr/local/lib/cmake/Findcvsba.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\"/>
+		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/../../../../../../usr/local/lib/cmake/Findcvsba.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

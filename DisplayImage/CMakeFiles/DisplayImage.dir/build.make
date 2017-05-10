@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/quang/clion-2017.1/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/tri/Downloads/clion-2017.1/bin/cmake/bin/cmake -E remove -f
+RM = /home/quang/clion-2017.1/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tri/CLionProjects/demo/DisplayImage
+CMAKE_SOURCE_DIR = /home/quang/CLionProjects/quang/demo/DisplayImage
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tri/CLionProjects/demo/DisplayImage
+CMAKE_BINARY_DIR = /home/quang/CLionProjects/quang/demo/DisplayImage
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DisplayImage.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/DisplayImage.dir/flags.make
 
 CMakeFiles/DisplayImage.dir/main.cpp.o: CMakeFiles/DisplayImage.dir/flags.make
 CMakeFiles/DisplayImage.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisplayImage.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/main.cpp.o -c /home/tri/CLionProjects/demo/DisplayImage/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisplayImage.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/main.cpp.o -c /home/quang/CLionProjects/quang/demo/DisplayImage/main.cpp
 
 CMakeFiles/DisplayImage.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisplayImage.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tri/CLionProjects/demo/DisplayImage/main.cpp > CMakeFiles/DisplayImage.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/quang/CLionProjects/quang/demo/DisplayImage/main.cpp > CMakeFiles/DisplayImage.dir/main.cpp.i
 
 CMakeFiles/DisplayImage.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisplayImage.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tri/CLionProjects/demo/DisplayImage/main.cpp -o CMakeFiles/DisplayImage.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/quang/CLionProjects/quang/demo/DisplayImage/main.cpp -o CMakeFiles/DisplayImage.dir/main.cpp.s
 
 CMakeFiles/DisplayImage.dir/main.cpp.o.requires:
 
@@ -81,18 +81,44 @@ CMakeFiles/DisplayImage.dir/main.cpp.o.provides: CMakeFiles/DisplayImage.dir/mai
 CMakeFiles/DisplayImage.dir/main.cpp.o.provides.build: CMakeFiles/DisplayImage.dir/main.cpp.o
 
 
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o: CMakeFiles/DisplayImage.dir/flags.make
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o: nViewStructureFromMotion.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o -c /home/quang/CLionProjects/quang/demo/DisplayImage/nViewStructureFromMotion.cpp
+
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/quang/CLionProjects/quang/demo/DisplayImage/nViewStructureFromMotion.cpp > CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.i
+
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/quang/CLionProjects/quang/demo/DisplayImage/nViewStructureFromMotion.cpp -o CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.s
+
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.requires:
+
+.PHONY : CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.requires
+
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.provides: CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.requires
+	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.provides.build
+.PHONY : CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.provides
+
+CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.provides.build: CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o
+
+
 # Object files for target DisplayImage
 DisplayImage_OBJECTS = \
-"CMakeFiles/DisplayImage.dir/main.cpp.o"
+"CMakeFiles/DisplayImage.dir/main.cpp.o" \
+"CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o"
 
 # External object files for target DisplayImage
 DisplayImage_EXTERNAL_OBJECTS =
 
 DisplayImage: CMakeFiles/DisplayImage.dir/main.cpp.o
+DisplayImage: CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o
 DisplayImage: CMakeFiles/DisplayImage.dir/build.make
 DisplayImage: /usr/lib/libblas.so
 DisplayImage: /usr/lib/liblapack.so
-DisplayImage: /usr/lib/libf2c.so
+DisplayImage: /usr/lib/x86_64-linux-gnu/libf2c.so
 DisplayImage: /usr/local/lib/libopencv_stitching.so.3.2.0
 DisplayImage: /usr/local/lib/libopencv_superres.so.3.2.0
 DisplayImage: /usr/local/lib/libopencv_videostab.so.3.2.0
@@ -141,7 +167,7 @@ DisplayImage: /usr/local/lib/libopencv_objdetect.so.3.2.0
 DisplayImage: /usr/local/lib/libopencv_imgproc.so.3.2.0
 DisplayImage: /usr/local/lib/libopencv_core.so.3.2.0
 DisplayImage: CMakeFiles/DisplayImage.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tri/CLionProjects/demo/DisplayImage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DisplayImage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DisplayImage"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DisplayImage.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -150,6 +176,7 @@ CMakeFiles/DisplayImage.dir/build: DisplayImage
 .PHONY : CMakeFiles/DisplayImage.dir/build
 
 CMakeFiles/DisplayImage.dir/requires: CMakeFiles/DisplayImage.dir/main.cpp.o.requires
+CMakeFiles/DisplayImage.dir/requires: CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o.requires
 
 .PHONY : CMakeFiles/DisplayImage.dir/requires
 
@@ -158,6 +185,6 @@ CMakeFiles/DisplayImage.dir/clean:
 .PHONY : CMakeFiles/DisplayImage.dir/clean
 
 CMakeFiles/DisplayImage.dir/depend:
-	cd /home/tri/CLionProjects/demo/DisplayImage && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tri/CLionProjects/demo/DisplayImage /home/tri/CLionProjects/demo/DisplayImage /home/tri/CLionProjects/demo/DisplayImage /home/tri/CLionProjects/demo/DisplayImage /home/tri/CLionProjects/demo/DisplayImage/CMakeFiles/DisplayImage.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/quang/CLionProjects/quang/demo/DisplayImage && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/quang/CLionProjects/quang/demo/DisplayImage /home/quang/CLionProjects/quang/demo/DisplayImage /home/quang/CLionProjects/quang/demo/DisplayImage /home/quang/CLionProjects/quang/demo/DisplayImage /home/quang/CLionProjects/quang/demo/DisplayImage/CMakeFiles/DisplayImage.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/DisplayImage.dir/depend
 

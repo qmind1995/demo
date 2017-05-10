@@ -77,6 +77,16 @@ CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/core/types.hp
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/core/types_c.h
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/core/utility.hpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/core/version.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudaarithm.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudabgsegm.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudacodec.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudafeatures2d.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudafilters.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudaimgproc.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudaobjdetect.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudaoptflow.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudastereo.hpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/cudawarping.hpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/features2d.hpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/flann.hpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/opencv2/flann/all_indices.h

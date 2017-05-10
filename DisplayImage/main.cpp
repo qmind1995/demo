@@ -261,6 +261,8 @@ void writeMeshLabFile(string fileName,vector< cv::Point3d > points3D){
     plyFile.close();
 }
 
+
+
 int main( int argc, char** argv ){
 
     Mat K(3, 3, CV_64F);
@@ -294,12 +296,14 @@ int main( int argc, char** argv ){
     }
 
     vector< cv::Point3d > points3D;
-    for(int i =0 ; i< numImageTest-1;i++){
+    for(int i = 0 ; i< numImageTest-1;i++){
         int image0_index = i;
         int image1_index = i + 1;
         cout << image0_index << endl;
         string image0 = imageFolder + imageList[image0_index];
         string image1 = imageFolder + imageList[image1_index];
+
+
         vector<cv::Point3d> solvedPoints = get3DPointsFromTwoImg(image0, image1, K, showMatching, 200);
         for (int j = 0; j < solvedPoints.size(); j++) {
             points3D.push_back(solvedPoints[j]);

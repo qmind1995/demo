@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DisplayImage.dir/main.cpp.o"
+  "CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o"
   "DisplayImage.pdb"
   "DisplayImage"
 )
