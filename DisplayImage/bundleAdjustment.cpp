@@ -14,10 +14,12 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
     hconcat(R, T, Rt);
     Mat P1 = K * Rt;
     cv::triangulatePoints(P0, P1, points0, points1, X);
+
     X.row(0) = X.row(0) / X.row(3);
     X.row(1) = X.row(1) / X.row(3);
     X.row(2) = X.row(2) / X.row(3);
     X.row(3) = 1;
+
     std::vector< cv::Point3d > points3D;
     points3D.resize(N);
     for(int i =0 ; i< N; i++) {
@@ -29,12 +31,7 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
 
 vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0, vector<Point2d> points1,
                                  Mat rotation, Mat translation, Mat K, int N, int N_VIEWS =2){
-    //cal projection matrix
-    Mat P0 = K * Mat::eye(3, 4, CV_64F);
-    Mat P1(3, 4, CV_64F);
-    hconcat( K*rotation, K*translation, P0 );
 
-    //hot fix:
     vector< Point3d > points3D;
     points3D = triAngulationForTwoViews(K,rotation, translation,points0, points1, N);
     vector< vector< Point2d > > pointsImg;
@@ -79,7 +76,9 @@ vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0, vecto
 
     cvsba::Sba sba;
     cvsba::Sba::Params param;
+//    param.type = cvsba::Sba::MOTION;
     param.type = cvsba::Sba::MOTIONSTRUCTURE;
+//    param.type = cvsba::Sba::STRUCTURE;
     param.fixedIntrinsics = 5;
     param.fixedDistortion = 5;
     param.verbose = false;

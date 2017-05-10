@@ -58,7 +58,7 @@ Mat normalization_fundamental(vector<Point2d> points, vector<Point2d>& points_no
     return  res;
 }
 
-vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image_2_address, Mat K,bool showMatching, int ceilViewRange =100){
+void get3DPointsFromTwoImg(vector<Point3d> &points3D, string image_1_address, string image_2_address, Mat K,bool showMatching, int ceilViewRange =100){
 
     Mat img_1 = imread( image_1_address, IMREAD_GRAYSCALE );
     Mat img_2 = imread( image_2_address, IMREAD_GRAYSCALE );
@@ -130,7 +130,9 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
         imwrite("res.png", img_matches);
     }
 
-    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(points0, points1, rotation, translation, K, view_range);
-
-    return points3D;
+    vector<Point3d> solvedPoints  = bundleAdjustmentForTwoViews(points0, points1, rotation, translation, K, view_range);
+    for (int j = 0; j < solvedPoints.size(); j++){
+        points3D.push_back(solvedPoints[j]);
+    }
+    return;
 }
