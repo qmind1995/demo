@@ -192,6 +192,7 @@ void calculateRTandReinfePairsPoint(vector<vector<Point2d>>& pairsPoint,
     }
 
     Mat essential_mat = K.t()*fundamental_mat*K;
+    //check again from here!!!!!
     recoverPose(essential_mat,
                 point0_filtered, point1_filtered, K,
                 R, T);
@@ -205,12 +206,12 @@ vector<Point3d> get3Dpoints(vector<vector<Point2d>> pairsPoint,
                             Mat K1, Mat R1, Mat T1,
                             Mat K2, Mat R2, Mat T2){
     int num_point = pairsPoint[0].size();
-    Mat RT1(4, 4, CV_64F);
-    Mat RT2(4, 4, CV_64F);
-    get_RT_from_R_T(R1, T1, RT1);
-    get_RT_from_R_T(R2, T2, RT2);
-    Mat P1 = K1 * Mat::eye(3, 4, CV_64F) * RT1;
-    Mat P2 = K2 * Mat::eye(3, 4, CV_64F) * RT2;
+    Mat RT1;
+    Mat RT2;
+    hconcat(R1, T1, RT1);
+    hconcat(R2, T2, RT2);
+    Mat P1 = K1 *  RT1;
+    Mat P2 = K2 * RT2;
 
     Mat homo_3d_point;
     triangulatePoints(P1, P2,
