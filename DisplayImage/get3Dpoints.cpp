@@ -12,6 +12,8 @@
 #include <flann/flann.hpp>
 #include <opencv/cv.hpp>
 
+#include "nViewStructureFromMotion.cpp"
+
 using namespace std;
 using namespace cv;
 
@@ -58,7 +60,7 @@ Mat normalization_fundamental(vector<Point2d> points, vector<Point2d>& points_no
     return  res;
 }
 
-void get3DPointsFromTwoImg(vector<Point3d> &points3D, string image_1_address, string image_2_address, Mat K,bool showMatching, int ceilViewRange =100){
+vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image_2_address, Mat K,bool showMatching, int ceilViewRange =100){
 
     Mat img_1 = imread( image_1_address, IMREAD_GRAYSCALE );
     Mat img_2 = imread( image_2_address, IMREAD_GRAYSCALE );
@@ -108,31 +110,93 @@ void get3DPointsFromTwoImg(vector<Point3d> &points3D, string image_1_address, st
     vector<Point2d> points0_nor(point_count);
     vector<Point2d> points1_nor(point_count);
 
-    Mat T1 = normalization_fundamental(points0, points0_nor);
-    Mat T2 = normalization_fundamental(points1, points1_nor);
+    //Mat T1 = normalization_fundamental(points0, points0_nor);
+    //Mat T2 = normalization_fundamental(points1, points1_nor);
 
-    Mat fundamental_mat = findFundamentalMat(points0_nor, points1_nor, FM_RANSAC, 3, 0.99);
+//    Mat fundamental_mat = findFundamentalMat(points0_nor, points1_nor, FM_RANSAC, 3, 0.99);
+//    fundamental_mat = T1.t()*fundamental_mat*T2;
 
-    fundamental_mat = T1.t()*fundamental_mat*T2;
+    Mat mask;
+
+    Mat fundamental_mat = findFundamentalMat(points0, points1, FM_RANSAC, 3, 0.99, mask);
+
+    std::vector< DMatch > good_matches_filted;
+    vector<double> err;
+    vector<Point2d> point0_fileted;
+    vector<Point2d> point1_fileted;
+    double total_err_not_de_norm = 0;
+    double count_err = 0;
+    for(int i=0; i < points0.size(); i++){
+        Mat p1(3, 1, CV_64F);
+        p1.at<double>(0, 0) = points0[i].x;
+        p1.at<double>(1, 0) = points0[i].y;
+        p1.at<double>(2, 0) = 1;
+        Mat p2(3, 1, CV_64F);
+        p2.at<double>(0, 0) = points1[i].x;
+        p2.at<double>(1, 0) = points1[i].y;
+        p2.at<double>(2, 0) = 1;
+
+        Mat epipola_line_1 = fundamental_mat * p2;
+        Mat res_up_mat_1 = p1.t() * epipola_line_1;
+        double res_up_1 = abs(res_up_mat_1.at<double>(0,0));
+        double res_bot_1 = sqrt(pow(epipola_line_1.at<double>(0,0),2) + pow(epipola_line_1.at<double>(1,0),2));
+        double distant_1 = res_up_1/res_bot_1;
+
+        Mat epipola_line_2 = p1.t() * fundamental_mat;
+        Mat res_up_mat_2 = epipola_line_2 * p2;
+        double res_up_2 = abs(res_up_mat_2.at<double>(0,0));
+        double res_bot_2 = sqrt(pow(epipola_line_2.at<double>(0,0),2) + pow(epipola_line_2.at<double>(0,1),2));
+        double distant_2 = res_up_2/res_bot_2;
+        //Mat res = p1.t() * fundamental_mat * p2;
+        cout << (unsigned int)mask.at<char>(i) << "---" << max(distant_1, distant_2) << endl << endl;
+
+        err.push_back(max(distant_1, distant_2));
+
+        if((unsigned int)mask.at<char>(i) == 1){
+            total_err_not_de_norm += max(distant_1, distant_2);
+            count_err += 1;
+            point0_fileted.push_back(points0[i]);
+            point1_fileted.push_back(points1[i]);
+            good_matches_filted.push_back(good_matches[i]);
+        }
+    }
+
+
+
+    cout << "Total fundamental err not de-norm yet: " << total_err_not_de_norm/count_err << endl << endl;
+    cout << fundamental_mat << endl;
     Mat essential_mat = K.t()*fundamental_mat*K;
 
     Mat rotation, translation;
-    recoverPose(essential_mat, points0, points1, K, rotation, translation);
+    recoverPose(essential_mat, point0_fileted, point1_fileted, K, rotation, translation);
 
     if(showMatching){
         Mat img_matches;
         drawMatches( img_1, keypoints_0,
-                 img_2, keypoints_1,
-                 good_matches,
-                 img_matches, Scalar::all(-1), Scalar::all(-1),
-                 vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS );
+                     img_2, keypoints_1,
+                //good_matches,
+                     good_matches_filted,
+                     img_matches, Scalar::all(-1), Scalar::all(-1),
+                     vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS );
         imshow( "Good Matches", img_matches );
         imwrite("res.png", img_matches);
     }
 
-    vector<Point3d> solvedPoints  = bundleAdjustmentForTwoViews(points0, points1, rotation, translation, K, view_range);
-    for (int j = 0; j < solvedPoints.size(); j++){
-        points3D.push_back(solvedPoints[j]);
-    }
-    return;
+    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(point0_fileted, point1_fileted, rotation, translation, K, point0_fileted.size());
+
+    return points3D;
+}
+
+vector<Point3d> get3DPoints(vector<string> imgsPath, Mat &firstR, Mat &firstT , Mat Ks, bool showMatching, int ceilViewRange = 100){
+
+    int NView = imgsPath.size();
+    // Matching
+
+    //get camera pose
+
+
+
+    vector<Point3d> points3D;
+
+    return points3D;
 }

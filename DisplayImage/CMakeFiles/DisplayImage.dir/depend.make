@@ -4,6 +4,7 @@
 CMakeFiles/DisplayImage.dir/main.cpp.o: bundleAdjustment.cpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: get3Dpoints.cpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: main.cpp
+CMakeFiles/DisplayImage.dir/main.cpp.o: nViewStructureFromMotion.cpp
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/cvsba/cvsba.h
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/flann/algorithms/all_indices.h
 CMakeFiles/DisplayImage.dir/main.cpp.o: /usr/local/include/flann/algorithms/autotuned_index.h

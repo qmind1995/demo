@@ -66,26 +66,30 @@ int main( int argc, char** argv ){
     K.at<double>(2, 1) = 0.000000;
     K.at<double>(2, 2) = 1.000000;
 
-    //Temple K:
-//    K.at<double>(0, 0) = 1520.400000;
-//    K.at<double>(0, 1) = 0.000000;
-//    K.at<double>(0, 2) = 302.320000;
-//
-//    K.at<double>(1, 0) = 0.000000;
-//    K.at<double>(1, 1) = 1525.900000;
-//    K.at<double>(1, 2) = 246.870000;
-//
-//    K.at<double>(2, 0) = 0.000000;
-//    K.at<double>(2, 1) = 0.000000;
-//    K.at<double>(2, 2) = 1.000000;
+    /*
+    Temple K:
+    K.at<double>(0, 0) = 1520.400000;
+    K.at<double>(0, 1) = 0.000000;
+    K.at<double>(0, 2) = 302.320000;
+
+    K.at<double>(1, 0) = 0.000000;
+    K.at<double>(1, 1) = 1525.900000;
+    K.at<double>(1, 2) = 246.870000;
+
+    K.at<double>(2, 0) = 0.000000;
+    K.at<double>(2, 1) = 0.000000;
+    K.at<double>(2, 2) = 1.000000;
+    */
     bool showMatching = true;
 
     int numImageTest = 2;
 
     string imageFolder = "./pictures/dinoRing/";
     string imageListFile = "./pictures/dinoRing/dinoR_good_silhouette_images.txt";
-//    string imageFolder = "./templeRing/";
-//    string imageListFile = "./templeRing/listImg.txt";
+/*
+    string imageFolder = "./templeRing/";
+    string imageListFile = "./templeRing/listImg.txt";
+*/
     vector<string> imageList;
     imageList.resize(numImageTest);
     ifstream imgListFileStream (imageListFile);
@@ -107,10 +111,18 @@ int main( int argc, char** argv ){
         string image0 = imageFolder + imageList[image0_index];
         string image1 = imageFolder + imageList[image1_index];
 
+        bool isGet3DpointsSuccess = false;
+        // init param
+
+
+        while(isGet3DpointsSuccess == false){
+
+
+        }
 
 
 
-        get3DPointsFromTwoImg(points3D,image0, image1, K, showMatching, 100);
+//        get3DPointsFromTwoImg(points3D,image0, image1, K, showMatching, 100);
 
     }
 
