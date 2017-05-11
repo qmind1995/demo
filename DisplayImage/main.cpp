@@ -18,11 +18,6 @@
 
 using namespace std;
 using namespace cv;
-void readme();
-/*
- * @function main
- * @brief Main function
- */
 
 void writeMeshLabFile(string fileName,vector< cv::Point3d > points3D){
 
