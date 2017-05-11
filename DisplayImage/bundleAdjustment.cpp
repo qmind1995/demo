@@ -6,29 +6,6 @@
 using namespace std;
 using namespace cv;
 
-//vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
-//                                               vector<Point2d> points0,
-//                                               vector<Point2d> points1, int N){
-//    Mat P0 = K * cv::Mat::eye(3, 4, CV_64F);
-//    Mat Rt, X;
-//    hconcat(R, T, Rt);
-//    Mat P1 = K * Rt;
-//    cv::triangulatePoints(P0, P1, points0, points1, X);
-//
-//    X.row(0) = X.row(0) / X.row(3);
-//    X.row(1) = X.row(1) / X.row(3);
-//    X.row(2) = X.row(2) / X.row(3);
-//    X.row(3) = 1;
-//
-//    std::vector< cv::Point3d > points3D;
-//    points3D.resize(N);
-//    for(int i =0 ; i< N; i++) {
-//        //change point3d data structure from matrix -> vector
-//        points3D[i] = cv::Point3d(X.at<double>(0, i), X.at<double>(1, i), X.at<double>(2, i));
-//    }
-//    return points3D;
-//}
-
 vector< cv::Point3d >triAngulationForTwoViews(Mat K, Mat R0, Mat T0,
                                               Mat R1, Mat T1,
                                               vector<Point2d> points0,

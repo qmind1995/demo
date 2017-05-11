@@ -80,33 +80,38 @@ int main( int argc, char** argv ){
 
     vector< cv::Point3d > points3D;
     Mat firstRotation, firstTranslation;
-    for(int i =0 ; i< numImageTest-1; i++){
-        int image0_index = i ;
-        int image1_index = i + 1 ;
+
+    firstRotation = cv::Mat::eye(3, 3, CV_64F);
+    firstTranslation = cv::Mat::zeros(3, 1, CV_64F);
+    int readImgIndex = 0;
+    int maxMatchImg  = 5;
+
+    while(readImgIndex < numImageTest){
+        int image0_index = readImgIndex ;
+        int image1_index = readImgIndex + 1 ;
+        readImgIndex = image1_index;
+
         string image0 = imageFolder + imageList[image0_index];
         string image1 = imageFolder + imageList[image1_index];
 
         bool isGet3DpointsSuccess = false;
-
-        // init param
         vector<string> imgsPath;
         imgsPath.push_back(image0);
         imgsPath.push_back(image1);
 
-        while(isGet3DpointsSuccess == false){
-            vector<Point3d> points3D = get3DPoints(imgsPath, firstRotation, firstTranslation, K, showMatching);
-            if(points3D.size() >0 ){
+        while(!isGet3DpointsSuccess && imgsPath.size() <=  maxMatchImg){
+            vector<Point3d> solvedPoints = get3DPoints(imgsPath, firstRotation, firstTranslation, K, showMatching);
+            if(solvedPoints.size() > 0 ){
+                points3D.insert(points3D.end(), solvedPoints.begin(), solvedPoints.end());
                 isGet3DpointsSuccess  = true;
             }
             else{
-                image1_index++;
-                string moreImg = imageFolder + imageList[image1_index];
+                readImgIndex++;
+                string moreImg = imageFolder + imageList[readImgIndex];
                 imgsPath.push_back(moreImg);
-                //need more end condition.
             }
         }
     }
-
     writeMeshLabFile("test.ply",points3D);
 
     waitKey(0);
