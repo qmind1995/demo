@@ -289,7 +289,7 @@ int main( int argc, char** argv ){
     K.at<double>(2, 2) = 1.000000;
     bool showMatching = true;
 
-    int numImageTest = 4;
+    int numImageTest = 3;
 
     string imageFolder = "./pictures/ImageDataset_SceauxCastle-master/images/";
     string imageListFile = "./pictures/ImageDataset_SceauxCastle-master/images/list_name.txt";

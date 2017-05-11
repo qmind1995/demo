@@ -94,7 +94,7 @@ void extractPairImageInfo(
                 pairs_point_pair_image,
                 K, current_R, current_T);
 
-        Mat current_RT(4, 4, CV_64F);
+        Mat current_RT = Mat::eye(4, 4, CV_64F);
         get_RT_from_R_T(current_R, current_T, current_RT);
         RT_global[pairs_id+1] = current_RT*RT_global[pairs_id];
         get_R_T_from_RT(temp_R, temp_T, RT_global[pairs_id+1]);
