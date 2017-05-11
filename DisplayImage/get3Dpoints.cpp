@@ -12,6 +12,7 @@
 #include <flann/flann.hpp>
 #include <opencv/cv.hpp>
 
+#include "bundleAdjustment.cpp"
 #include "nViewStructureFromMotion.cpp"
 
 using namespace std;
@@ -181,13 +182,23 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
         imshow( "Good Matches", img_matches );
         imwrite("res.png", img_matches);
     }
-
-    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(point0_fileted, point1_fileted, rotation, translation, K, point0_fileted.size());
+    vector< cv::Point3d > points3D;
+//    vector< cv::Point3d > points3D = bundleAdjustmentForTwoViews(point0_fileted, point1_fileted, rotation, translation, K, point0_fileted.size());
 
     return points3D;
 }
 
-vector<Point3d> get3DPoints(vector<string> imgsPath, Mat &firstR, Mat &firstT , Mat Ks, bool showMatching, int ceilViewRange = 100){
+/**
+ *
+ * @param imgsPath
+ * @param firstR
+ * @param firstT
+ * @param Ks
+ * @param showMatching
+ * @param ceilViewRange
+ * @return
+ */
+vector<Point3d> get3DPoints(vector<string> imgsPath, Mat &firstR, Mat &firstT , Mat K, bool showMatching, int ceilViewRange = 100){
 
     int NView = imgsPath.size();
     // Matching
@@ -198,5 +209,6 @@ vector<Point3d> get3DPoints(vector<string> imgsPath, Mat &firstR, Mat &firstT , 
 
     vector<Point3d> points3D;
 
+//    BAForMultiViews()
     return points3D;
 }

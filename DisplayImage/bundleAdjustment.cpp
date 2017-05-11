@@ -29,61 +29,27 @@ vector< cv::Point3d > triAngulationForTwoViews(Mat K, Mat R, Mat T,
     return points3D;
 }
 
-vector< cv::Point3d > bundleAdjustmentForTwoViews(vector<Point2d> points0, vector<Point2d> points1,
-                                 Mat rotation, Mat translation, Mat K, int N, int N_VIEWS =2){
+bool BAForMultiViews(vector< vector<Point2d> > imgPoints, vector<Point3d> point3Ds,
+                                vector<Mat> &Rs, vector<Mat> &Ts, Mat K, vector< std::vector<int> > visibility, int nview){
 
-    vector< Point3d > points3D;
-    points3D = triAngulationForTwoViews(K,rotation, translation,points0, points1, N);
-    vector< vector< Point2d > > pointsImg;
-    pointsImg.resize(N_VIEWS);
-    for(int i = 0; i < N_VIEWS; i++){
-        pointsImg[i].resize(N);
-    }
-    for(int i = 0 ; i < N; i++){
-        pointsImg[0][i] = points0[i];
-        pointsImg[1][i] = points1[i];
-    }
-    vector< std::vector<int> > visibility;
-    visibility.resize(N_VIEWS);
-    for(int i=0; i<N_VIEWS; i++){
-        visibility[i].resize(N);
-        for(int j=0; j<N; j++){
-            visibility[i][j]=1;
-        }
-    }
-    // fill distortion (assume no distortion)
-    vector< Mat > distCoeffs;
-    distCoeffs.resize(N_VIEWS);
-    for(int i=0; i<N_VIEWS; i++) {
-        distCoeffs[i] = Mat(5,1,CV_64FC1, Scalar::all(0));
-    }
 
-    // cameras intrinsic matrix
-    vector< Mat > cameraMatrix;
-    cameraMatrix.resize(N_VIEWS);
-    for(int i=0; i<N_VIEWS; i++) {
-        cameraMatrix[i] =K;
-    }
-
-    vector<Mat> Ks, dist_coeffs, Rs, ts;
-    Ks.resize(N_VIEWS, K);
-    dist_coeffs.resize(N_VIEWS, Mat::zeros(5, 1, CV_64F));
-    Rs.push_back(Mat::eye(3, 3, CV_64F));// R for the first camera (index: 0)
-    ts.push_back(Mat::zeros(3, 1, CV_64F));// t for the first camera (index: 0)
-
-    Rs.push_back(rotation);// R for the second camera
-    ts.push_back(translation);// t for the second camera
-
+    vector<Mat> Ks, dist_coeffs;
+    Ks.resize(nview, K);
+    dist_coeffs.resize(nview, Mat::zeros(5, 1, CV_64F));
     cvsba::Sba sba;
     cvsba::Sba::Params param;
-//    param.type = cvsba::Sba::MOTION;
-    param.type = cvsba::Sba::MOTIONSTRUCTURE;
-//    param.type = cvsba::Sba::STRUCTURE;
     param.fixedIntrinsics = 5;
     param.fixedDistortion = 5;
     param.verbose = false;
     sba.setParams(param);
-    sba.run(points3D, pointsImg, visibility, Ks, Rs, ts, dist_coeffs);
-    cout<<"Initial error="<<sba.getInitialReprjError()<<". Final error="<<sba.getFinalReprjError()<<std::endl;
-    return points3D;
+    try {
+        sba.run(point3Ds, imgPoints, visibility, Ks, Rs, Ts, dist_coeffs);
+        // add RS, TS to file
+        return true;//success get 3d points and camera pose
+    }
+    catch (cv::Exception) {
+        // need more matching
+        return false;
+    }
+
 }

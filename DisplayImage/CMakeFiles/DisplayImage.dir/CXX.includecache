@@ -31,6 +31,8 @@ flann/flann.hpp
 -
 opencv/cv.hpp
 -
+bundleAdjustment.cpp
+/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp
 nViewStructureFromMotion.cpp
 /home/tri/CLionProjects/demo/DisplayImage/nViewStructureFromMotion.cpp
 
@@ -63,8 +65,6 @@ flann/flann.h
 /home/tri/CLionProjects/demo/DisplayImage/flann/flann.h
 flann/algorithms/lsh_index.h
 /home/tri/CLionProjects/demo/DisplayImage/flann/algorithms/lsh_index.h
-bundleAdjustment.cpp
-/home/tri/CLionProjects/demo/DisplayImage/bundleAdjustment.cpp
 get3Dpoints.cpp
 /home/tri/CLionProjects/demo/DisplayImage/get3Dpoints.cpp
 fstream
