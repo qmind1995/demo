@@ -11,7 +11,7 @@
 #include "opencv2/xfeatures2d.hpp"
 #include <flann/flann.hpp>
 #include <opencv/cv.hpp>
-
+#include "bundleAdjustment.cpp"
 using namespace std;
 using namespace cv;
 

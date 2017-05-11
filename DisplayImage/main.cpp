@@ -15,11 +15,12 @@
 #include <flann/flann.hpp>
 #include <flann/algorithms/hierarchical_clustering_index.h>
 #include <opencv/cv.hpp>
+#include <cvsba/cvsba.h>
 
 #include "flann/flann.h"
 #include "flann/algorithms/lsh_index.h"
 #include "bundleAdjustment.cpp"
-#include "get3Dpoints.cpp"
+//#include "get3Dpoints.cpp"
 #include "nViewStructureFromMotion.cpp"
 #include <fstream>
 
@@ -275,23 +276,23 @@ void writeMeshLabFile(string fileName,vector< cv::Point3d > points3D){
 int main( int argc, char** argv ){
 
     Mat K(3, 3, CV_64F);
-    K.at<double>(0, 0) = 3310.400000;
+    K.at<double>(0, 0) = 2905.88;
     K.at<double>(0, 1) = 0.000000;
-    K.at<double>(0, 2) = 316.730000;
+    K.at<double>(0, 2) = 1416;
 
     K.at<double>(1, 0) = 0.000000;
-    K.at<double>(1, 1) = 3325.500000;
-    K.at<double>(1, 2) = 200.550000;
+    K.at<double>(1, 1) = 2905.88;
+    K.at<double>(1, 2) = 1064;
 
     K.at<double>(2, 0) = 0.000000;
     K.at<double>(2, 1) = 0.000000;
     K.at<double>(2, 2) = 1.000000;
     bool showMatching = true;
 
-    int numImageTest = 2;
+    int numImageTest = 4;
 
-    string imageFolder = "./pictures/dinoRing/";
-    string imageListFile = "./pictures/dinoRing/dinoR_good_silhouette_images.txt";
+    string imageFolder = "./pictures/ImageDataset_SceauxCastle-master/images/";
+    string imageListFile = "./pictures/ImageDataset_SceauxCastle-master/images/list_name.txt";
     vector<string> imageList;
     imageList.resize(numImageTest);
     ifstream imgListFileStream (imageListFile);
@@ -312,6 +313,18 @@ int main( int argc, char** argv ){
     vector<Mat> T_global;
     extractPairImageInfo(imageList, K, 100, points3D, imagePoints, visibility, R_global, T_global);
 
+    vector<Mat> dist_coeffs, Ks;
+    Ks.resize((unsigned long) numImageTest, K);
+    dist_coeffs.resize((unsigned long) numImageTest, Mat::zeros(5, 1, CV_64F));
+    cvsba::Sba sba;
+    cvsba::Sba::Params param;
+    param.type = cvsba::Sba::MOTIONSTRUCTURE;
+    param.fixedIntrinsics = 5;
+    param.fixedDistortion = 5;
+    param.verbose = false;
+    sba.setParams(param);
+    sba.run(points3D, imagePoints, visibility, Ks, R_global, T_global, dist_coeffs);
+
 
 //    vector< cv::Point3d > points3D;
 //    for(int i = 0 ; i< numImageTest-1;i++){
@@ -321,12 +334,13 @@ int main( int argc, char** argv ){
 //        string image0 = imageFolder + imageList[image0_index];
 //        string image1 = imageFolder + imageList[image1_index];
 //
-//
 //        vector<cv::Point3d> solvedPoints = get3DPointsFromTwoImg(image0, image1, K, showMatching, 200);
 //        for (int j = 0; j < solvedPoints.size(); j++) {
 //            points3D.push_back(solvedPoints[j]);
 //        }
 //    }
+
+
 
     writeMeshLabFile("test.ply",points3D);
 
