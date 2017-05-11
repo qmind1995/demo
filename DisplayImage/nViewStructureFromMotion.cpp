@@ -18,6 +18,24 @@
 using namespace std;
 using namespace cv;
 
+//get correspond point of 2 image
+vector<vector<Point2d>> getPairsPoint(string image_1_address, string image_2_address, int ceilViewRange);
+//calculate Rotation and Translation matrix, and refine correspond point of 2 image by remove outliner
+//R, T is local
+void calculateRTandReinfePairsPoint(vector<vector<Point2d>>& pairsPoint,
+                                    Mat K, Mat& R, Mat& T);
+//get 3D point generate by 2 image
+//R, T use in this is global
+vector<Point3d> get3Dpoints(vector<vector<Point2d>> pairsPoint,
+                            Mat K, Mat R, Mat T);
+//build track 3D point <=> vector of Point2d
+vector<vector<Point2d>> buildTrack(vector<vector<vector<Point2d>>> pairsPointOfMultiImage);
+
+//build visibility matrix and 3Dpoint location on each image matrix
+void build3DpointOnImage(vector<vector<Point2d>> track,
+                         vector<vector<Point2d>>& imagePoints,
+                         vector<vector<int>>& visibility);
+
 
 void get_R_T_from_RT(Mat& R, Mat& T, const Mat RT){
     for(int i=0; i<3; i++){
@@ -239,4 +257,60 @@ void extractPairImageInfo(
             visibility[image_id][point3d_id] = 1;
         }
     }
+}
+
+vector<vector<Point2d>> getPairsPoint(
+        string image_1_address,
+        string image_2_address,
+        int ceilViewRange){
+    Mat img_1 = imread( image_1_address, IMREAD_GRAYSCALE );
+    Mat img_2 = imread( image_2_address, IMREAD_GRAYSCALE );
+
+    Ptr<BRISK> detector = BRISK::create();
+    cv::Ptr<cv::DescriptorMatcher> matcher = cv::makePtr<cv::FlannBasedMatcher>(cv::makePtr<cv::flann::LshIndexParams>(12, 20, 2));
+
+    vector<KeyPoint> keypoints_1, keypoints_2;
+    Mat descriptors_1, descriptors_2;
+    detector->detectAndCompute( img_1, Mat(), keypoints_1, descriptors_2 );
+    detector->detectAndCompute( img_2, Mat(), keypoints_1, descriptors_2 );
+
+    cv::Ptr<cv::DescriptorMatcher> matcher = cv::makePtr<cv::FlannBasedMatcher>(cv::makePtr<cv::flann::LshIndexParams>(12, 20, 2));
+    vector< DMatch > matchesOneToTwo;
+    vector< DMatch > matchesTwoToOne;
+    vector< DMatch > matches;
+    matcher->match( descriptors_1, descriptors_2, matchesOneToTwo, Mat() );
+    matcher->match( descriptors_2, descriptors_1, matchesTwoToOne, Mat() );
+
+    for(int i = 0; i < descriptors_1.rows; i++){
+        if(matchesTwoToOne[matchesOneToTwo[i].trainIdx].trainIdx == i){
+            matches.push_back(DMatch(i, matchesOneToTwo[i].trainIdx, matchesOneToTwo[i].distance));
+        }
+    }
+//    matches = matchesOneToTwo;
+    sort(matches.begin(), matches.end());
+
+    int view_range = min((int)matches.size(), ceilViewRange);
+    std::vector< DMatch > good_matches;
+    for(int i=0; i<view_range; i++)
+        good_matches.push_back(matches[i]);
+
+    unsigned long point_count = (unsigned long)view_range;
+    vector<Point2d> points0(point_count);
+    vector<Point2d> points1(point_count);
+
+    for(int i=0; i<point_count; i++){
+        float x1 = keypoints_1[good_matches[i].queryIdx].pt.x;
+        float y1 = keypoints_1[good_matches[i].queryIdx].pt.y;
+
+        float x2 = keypoints_2[good_matches[i].trainIdx].pt.x;
+        float y2 = keypoints_2[good_matches[i].trainIdx].pt.y;
+
+        points0[i] = Point2d(x1, y1);
+        points1[i] = Point2d(x2, y2);
+    }
+
+    vector<vector<Point2d>> res;
+    res.push_back(points0);
+    res.push_back(points1);
+    return res;
 }

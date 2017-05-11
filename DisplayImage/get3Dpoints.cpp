@@ -67,8 +67,6 @@ vector< cv::Point3d > get3DPointsFromTwoImg(string image_1_address, string image
 
     vector<KeyPoint> keypoints_0, keypoints_1;
     Mat descriptors_1, descriptors_2;
-    int aa = descriptors_1.size().width;
-    int bb = descriptors_1.size().height;
     detector->detectAndCompute( img_1, Mat(), keypoints_0, descriptors_1 );
     detector->detectAndCompute( img_2, Mat(), keypoints_1, descriptors_2 );
 
