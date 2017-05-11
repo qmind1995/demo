@@ -42,25 +42,23 @@ void writeMeshLabFile(string fileName,vector< cv::Point3d > points3D){
 int main( int argc, char** argv ){
 
     Mat K(3, 3, CV_64F);
-    //Rhino K
-    K.at<double>(0, 0) = 3310.400000;
+    K.at<double>(0, 0) = 2905.88;
     K.at<double>(0, 1) = 0.000000;
-    K.at<double>(0, 2) = 316.730000;
+    K.at<double>(0, 2) = 1416;
 
     K.at<double>(1, 0) = 0.000000;
-    K.at<double>(1, 1) = 3325.500000;
-    K.at<double>(1, 2) = 200.550000;
+    K.at<double>(1, 1) = 2905.88;
+    K.at<double>(1, 2) = 1064;
 
     K.at<double>(2, 0) = 0.000000;
     K.at<double>(2, 1) = 0.000000;
     K.at<double>(2, 2) = 1.000000;
-
     bool showMatching = true;
 
     int numImageTest = 2;
 
-    string imageFolder = "./pictures/dinoRing/";
-    string imageListFile = "./pictures/dinoRing/dinoR_good_silhouette_images.txt";
+    string imageFolder = "./pictures/ImageDataset_SceauxCastle-master/images/";
+    string imageListFile = "./pictures/ImageDataset_SceauxCastle-master/images/list_name.txt";
     vector<string> imageList;
     imageList.resize(numImageTest);
     ifstream imgListFileStream (imageListFile);
