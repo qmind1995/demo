@@ -15,8 +15,9 @@
 #include <cvsba/cvsba.h>
 #include <cublas_v2.h>
 
-using namespace cv;
 using namespace std;
+using namespace cv;
+
 
 void get_R_T_from_RT(Mat& R, Mat& T, const Mat RT){
     for(int i=0; i<3; i++){
@@ -36,7 +37,6 @@ void get_RT_from_R_T(const Mat R, const Mat T, Mat& RT){
             RT.at<double>(i,j) = R.at<double>(i,j);
         }
     }
-
     for(int i=0; i<3; i++){
         RT.at<double>(i,3) = T.at<double>(i,0);
     }
@@ -45,7 +45,7 @@ void get_RT_from_R_T(const Mat R, const Mat T, Mat& RT){
 void extractPairImageInfo(
         const vector<string> image_address,
         const Mat K,
-        const int ceilViewRange = 100,
+        const int ceilViewRange,
         vector<Point3d>& points3D,
         vector<vector<Point2d>>& imagePoints,
         vector<vector<int>>& visibility,
@@ -53,16 +53,22 @@ void extractPairImageInfo(
         vector<Mat>& T_global)
 {
     Ptr<BRISK> detector = BRISK::create();
-    Ptr<DescriptorMatcher> matcher = makePtr<FlannBasedMatcher>(makePtr<flann::LshIndexParams>(12, 20, 2));
+    cv::Ptr<cv::DescriptorMatcher> matcher = cv::makePtr<cv::FlannBasedMatcher>(cv::makePtr<cv::flann::LshIndexParams>(12, 20, 2));
 
     unsigned long number_image = image_address.size();
     unsigned long number_pair = number_image - 1;
 
     R_global.resize(number_image);
     T_global.resize(number_image);
+    for(unsigned long image_id = 0; image_id < number_image; image_id++){
+        R_global[image_id] = Mat::zeros(3, 3, CV_64F);
+        T_global[image_id] = Mat::zeros(3, 1, CV_64F);
+    }
+
     //calculate key point and descriptor for each image
     vector<vector<KeyPoint>> key_point_vector(number_image);
     vector<Mat> descriptor_vector(number_image);
+
     for(unsigned long image_id = 0; image_id < number_image; image_id++){
         Mat current_image = imread( image_address[image_id], IMREAD_GRAYSCALE );
         detector->detectAndCompute(
@@ -74,9 +80,9 @@ void extractPairImageInfo(
     vector<vector<DMatch>> match_filtered(number_pair); //filter by RANSAC
     vector<vector<Point3d>> point3D_pair(number_pair);
 
-    vector<Mat> RT_global;
-    RT_global[0] = Mat::eye(4, 4, CV_32F);
-    //Mat current_global_RT = Mat::eye(4, 4, CV_32F);
+    vector<Mat> RT_global(number_image);
+    RT_global[0] = Mat::eye(4, 4, CV_64F);
+    //Mat current_global_RT = Mat::eye(4, 4, CV_64F);
     get_R_T_from_RT(R_global[0], T_global[0], RT_global[0]);
     for(unsigned long pairs_id = 0; pairs_id < number_pair; pairs_id++){
         vector<DMatch> matchesOneToTwo;
@@ -91,7 +97,7 @@ void extractPairImageInfo(
                 descriptor_vector[pairs_id],
                 matchesTwoToOne, Mat() );
 
-        for(int point_id = 0; point_id < descriptor_vector[point_id].rows; point_id++){
+        for(int point_id = 0; point_id < descriptor_vector[pairs_id].rows; point_id++){
             if(matchesTwoToOne[matchesOneToTwo[point_id].trainIdx].trainIdx == point_id){
                 matches.push_back(DMatch(point_id,
                                matchesOneToTwo[point_id].trainIdx,
@@ -135,7 +141,7 @@ void extractPairImageInfo(
         Mat essential_mat = K.t()*fundamental_mat*K;
         Mat current_pair_R;
         Mat current_pair_T;
-        Mat current_pair_RT(4, 4, CV_32F);
+        Mat current_pair_RT(4, 4, CV_64F);
         recoverPose(essential_mat,
                     point0_filtered, point1_filtered, K,
                     current_pair_R,
@@ -149,8 +155,11 @@ void extractPairImageInfo(
         get_R_T_from_RT(R_global[pairs_id+1], T_global[pairs_id+1], RT_global[pairs_id+1]);
         //we have R_global and T_global of image before!
         Mat homo_3d_point;
-        Mat Projection_0 = K * Mat::eye(3, 4, CV_64F) * RT_global[pairs_id];
-        Mat Projection_1 = K * Mat::eye(3, 4, CV_64F) * RT_global[pairs_id+1];
+        cout << RT_global[0] << endl << endl;
+        cout << RT_global[1] << endl << endl;
+        Mat eye34 = cv::Mat::eye(3, 4, CV_64F);
+        Mat Projection_0 = K * eye34 * RT_global[pairs_id];
+        Mat Projection_1 = K * eye34 * RT_global[pairs_id+1];
         triangulatePoints(Projection_0, Projection_1,
                           point0_filtered, point1_filtered,
                           homo_3d_point);
@@ -219,7 +228,6 @@ void extractPairImageInfo(
         imagePoints.push_back(temp_vector_point2d);
         visibility.push_back(temp_visibility);
     }
-
 
     points3D.resize(num_3D_points);
     for(int point3d_id = 0; point3d_id < num_3D_points; point3d_id++){

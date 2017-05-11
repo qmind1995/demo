@@ -20,6 +20,7 @@
 #include "flann/algorithms/lsh_index.h"
 #include "bundleAdjustment.cpp"
 #include "get3Dpoints.cpp"
+#include "nViewStructureFromMotion.cpp"
 #include <fstream>
 
 using namespace std;
@@ -261,19 +262,15 @@ void writeMeshLabFile(string fileName,vector< cv::Point3d > points3D){
     plyFile.close();
 }
 
-<<<<<<< HEAD
-
-=======
-void extractPairImageInfo(
-        const vector<string> image_address,
-        const Mat K,
-        const int ceilViewRange = 100,
-        vector<Point3d>& points,
-        vector<vector<Point2d>>& imagePoints,
-        vector<vector<int>>& visibility,
-        vector<Mat>& R_global,
-        vector<Mat>& T_global);
->>>>>>> 58d9bddda351a4f0b204b24ffcb8d7c4c59f56fa
+//void extractPairImageInfo(
+//        const vector<string> image_address,
+//        const Mat K,
+//        const int ceilViewRange = 100,
+//        vector<Point3d>& points,
+//        vector<vector<Point2d>>& imagePoints,
+//        vector<vector<int>>& visibility,
+//        vector<Mat>& R_global,
+//        vector<Mat>& T_global);
 
 int main( int argc, char** argv ){
 
@@ -303,24 +300,33 @@ int main( int argc, char** argv ){
         return -1;
     }
 
-    for(int i=0; i<numImageTest; i++){
-        imgListFileStream >>imageList[i];
+    for(int i=0; i< numImageTest; i++){
+        imgListFileStream >> imageList[i];
+        imageList[i] = imageFolder + imageList[i];
     }
 
     vector< cv::Point3d > points3D;
-    for(int i = 0 ; i< numImageTest-1;i++){
-        int image0_index = i;
-        int image1_index = i + 1;
-        cout << image0_index << endl;
-        string image0 = imageFolder + imageList[image0_index];
-        string image1 = imageFolder + imageList[image1_index];
+    vector<vector<Point2d>> imagePoints;
+    vector<vector<int>> visibility;
+    vector<Mat> R_global;
+    vector<Mat> T_global;
+    extractPairImageInfo(imageList, K, 100, points3D, imagePoints, visibility, R_global, T_global);
 
 
-        vector<cv::Point3d> solvedPoints = get3DPointsFromTwoImg(image0, image1, K, showMatching, 200);
-        for (int j = 0; j < solvedPoints.size(); j++) {
-            points3D.push_back(solvedPoints[j]);
-        }
-    }
+//    vector< cv::Point3d > points3D;
+//    for(int i = 0 ; i< numImageTest-1;i++){
+//        int image0_index = i;
+//        int image1_index = i + 1;
+//        cout << image0_index << endl;
+//        string image0 = imageFolder + imageList[image0_index];
+//        string image1 = imageFolder + imageList[image1_index];
+//
+//
+//        vector<cv::Point3d> solvedPoints = get3DPointsFromTwoImg(image0, image1, K, showMatching, 200);
+//        for (int j = 0; j < solvedPoints.size(); j++) {
+//            points3D.push_back(solvedPoints[j]);
+//        }
+//    }
 
     writeMeshLabFile("test.ply",points3D);
 

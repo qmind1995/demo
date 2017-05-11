@@ -89,9 +89,6 @@
 		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/main.cpp">
 			<Option target="DisplayImage"/>
 		</Unit>
-		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/nViewStructureFromMotion.cpp">
-			<Option target="DisplayImage"/>
-		</Unit>
 		<Unit filename="/home/quang/CLionProjects/quang/demo/DisplayImage/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

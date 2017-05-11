@@ -150,33 +150,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-nViewStructureFromMotion.o: nViewStructureFromMotion.cpp.o
-
-.PHONY : nViewStructureFromMotion.o
-
-# target to build an object file
-nViewStructureFromMotion.cpp.o:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.o
-.PHONY : nViewStructureFromMotion.cpp.o
-
-nViewStructureFromMotion.i: nViewStructureFromMotion.cpp.i
-
-.PHONY : nViewStructureFromMotion.i
-
-# target to preprocess a source file
-nViewStructureFromMotion.cpp.i:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.i
-.PHONY : nViewStructureFromMotion.cpp.i
-
-nViewStructureFromMotion.s: nViewStructureFromMotion.cpp.s
-
-.PHONY : nViewStructureFromMotion.s
-
-# target to generate assembly for a file
-nViewStructureFromMotion.cpp.s:
-	$(MAKE) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/nViewStructureFromMotion.cpp.s
-.PHONY : nViewStructureFromMotion.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +162,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... nViewStructureFromMotion.o"
-	@echo "... nViewStructureFromMotion.i"
-	@echo "... nViewStructureFromMotion.s"
 .PHONY : help
 
 
