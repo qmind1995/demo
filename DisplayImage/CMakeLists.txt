@@ -26,6 +26,6 @@ endif(NOT OPENGL_FOUND)
 
 
 set(SOURCE_FILES main.cpp)
-add_executable( DisplayImage main.cpp)
+add_executable( DisplayImage main.cpp ImgsData.h)
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 target_link_libraries( DisplayImage ${OpenCV_LIBS} ${cvsba_LIBS} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
