@@ -13,9 +13,10 @@
 
 #include "flann/flann.h"
 #include "flann/algorithms/lsh_index.h"
-#include "get3Dpoints.cpp"
+//#include "get3Dpoints.cpp"
 #include <fstream>
 
+#include "testGetPoint.cpp"
 using namespace std;
 using namespace cv;
 
@@ -55,10 +56,27 @@ int main( int argc, char** argv ){
     K.at<double>(2, 2) = 1.000000;
     bool showMatching = true;
 
-    int numImageTest = 2;
+    int numImageTest = 3;
 
     string imageFolder = "./pictures/ImageDataset_SceauxCastle-master/images/";
     string imageListFile = "./pictures/ImageDataset_SceauxCastle-master/images/list_name.txt";
+    vector<string> imageList;
+    imageList.resize(numImageTest);
+    imageList[0]= "./pictures/ImageDataset_SceauxCastle-master/images/100_7103.JPG";
+    imageList[1]= "./pictures/ImageDataset_SceauxCastle-master/images/100_7104.JPG";
+    imageList[2]= "./pictures/ImageDataset_SceauxCastle-master/images/100_7105.JPG";
+    vector< cv::Point3d > points3D;
+//    points3D = get3DPointsFromTwoImg(imageList[0], imageList[1], K, false);
+//
+//    writeMeshLabFile("test.ply",points3D);
+//
+//    vector< cv::Point3d > points3D_;
+//    points3D_ = get3DPointsFromTwoImg(imageList[0], imageList[2], K, false);
+//
+//    writeMeshLabFile("test2.ply",points3D_);
+    points3D = testing(imageList, K);
+    writeMeshLabFile("test.ply",points3D);
+    /*
     vector<string> imageList;
     imageList.resize(numImageTest);
     ifstream imgListFileStream (imageListFile);
@@ -106,6 +124,7 @@ int main( int argc, char** argv ){
         }
     }
     writeMeshLabFile("test.ply",points3D);
+*/
 
     waitKey(0);
     return 0;

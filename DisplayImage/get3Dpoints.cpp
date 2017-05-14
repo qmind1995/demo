@@ -13,7 +13,7 @@
 #include <opencv/cv.hpp>
 
 #include "bundleAdjustment.cpp"
-#include "nViewStructureFromMotion.cpp"
+//#include "nViewStructureFromMotion.cpp"
 
 using namespace std;
 using namespace cv;
